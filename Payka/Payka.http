@@ -1,0 +1,6 @@
+@Payka_HostAddress = http://localhost:5189
+
+GET {{Payka_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
