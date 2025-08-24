@@ -6,13 +6,10 @@ var services = builder.Services;
 
 builder.ConfigureKestrel();
 
-
-builder.ConfigureKestrel();
-
-services.AddGraphQlAuthorization(builder.Configuration);
+//services.AddGraphQlAuthorization(builder.Configuration);
 services.AddControllers();
-var connectionString = GetFormattedConnectionString();
-services.AddPaykaServices(connectionString);
+//var connectionString = GetFormattedConnectionString();
+//services.AddPaykaServices(connectionString);
 services.AddGraphQL();
 
 var app = builder.Build();
@@ -23,6 +20,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGraphQL();
 
 app.Run();
 string GetFormattedConnectionString()
