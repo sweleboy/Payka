@@ -13,7 +13,7 @@ namespace Payka.API.Extensions
 					.AddQueryType()
 					//.AddMutationType()
 					.AddAPITypes()
-					.AddMutationConventions()
+					.AddMutationConventions()	
 					.AddFiltering()
 					.AddProjections()
 					.AddPagingArguments()
