@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Payka.Domain.Models.Base;
 
 namespace Payka.Domain.Models
 {
-	public class User
+	public class User : DomainModelBase
 	{
+		private User()
+		{
+
+		}
 	}
 }
