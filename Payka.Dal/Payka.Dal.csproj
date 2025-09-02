@@ -16,11 +16,13 @@
     <PackageReference Include="HotChocolate.Types.Analyzers" />
     <PackageReference Include="HotChocolate.Types.OffsetPagination" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Payka.Application\Payka.Application.csproj" />
     <ProjectReference Include="..\Payka.Domain\Payka.Domain.csproj" />
+    <ProjectReference Include="..\Payka.ReadModel\Payka.ReadModel.csproj" />
   </ItemGroup>
 
 </Project>

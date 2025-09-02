@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payka.ReadModel", "Payka.ReadModel\Payka.ReadModel.csproj", "{AAC5CD18-A12C-4CA9-B6F1-9B4ED2589379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{6C036D11-34F4-43CB-8F8A-3502BA4B5FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C036D11-34F4-43CB-8F8A-3502BA4B5FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C036D11-34F4-43CB-8F8A-3502BA4B5FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC5CD18-A12C-4CA9-B6F1-9B4ED2589379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC5CD18-A12C-4CA9-B6F1-9B4ED2589379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC5CD18-A12C-4CA9-B6F1-9B4ED2589379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC5CD18-A12C-4CA9-B6F1-9B4ED2589379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
