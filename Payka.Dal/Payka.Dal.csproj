@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Payka.Application\Payka.Application.csproj" />
     <ProjectReference Include="..\Payka.Domain\Payka.Domain.csproj" />
     <ProjectReference Include="..\Payka.ReadModel\Payka.ReadModel.csproj" />
   </ItemGroup>
