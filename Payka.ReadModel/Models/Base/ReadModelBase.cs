@@ -8,7 +8,7 @@ public abstract class ReadModelBase
 		set;
 	}
 
-	public DateTime CreateDat
+	public DateTime CreateDate
 	{
 		get;
 		set;
