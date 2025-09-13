@@ -1,0 +1,28 @@
+﻿using Payka.Domain.Models.Base;
+using Payka.Domain.Models.Users;
+
+namespace Payka.Domain.Models;
+
+public class Wallet : DomainModelBase
+{
+	public string Name { get; private set; } = string.Empty;
+	public Money Balance { get; private set; }
+	public User Owner { get; private set; }
+	public string? Notes { get; private set; }
+
+	private Wallet() { }
+
+	private Wallet(Guid id, string name, Money initialBalance, User owner, string? notes)
+	{
+		Id = id;
+		Name = name;
+		Balance = initialBalance;
+		Owner = owner;
+		Notes = notes;
+	}
+
+	public static Wallet Create(Guid id, string name, Money initialBalance, User owner, string? notes = null)
+	{
+		return new Wallet(id, name, initialBalance, owner, notes);
+	}
+}

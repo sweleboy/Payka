@@ -1,6 +1,6 @@
 ﻿using Payka.Domain.Models.Base;
 
-namespace Payka.Domain.Models
+namespace Payka.Domain.Models.Users
 {
 	/// <summary>
 	/// Представляет модель пользователя.
