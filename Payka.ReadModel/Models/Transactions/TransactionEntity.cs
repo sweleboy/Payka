@@ -1,4 +1,5 @@
 ﻿using Payka.ReadModel.Models.Base;
+using Payka.ReadModel.Models.Users;
 
 namespace Payka.ReadModel.Models.Transactions;
 

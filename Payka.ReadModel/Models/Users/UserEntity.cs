@@ -1,6 +1,6 @@
 ﻿using Payka.ReadModel.Models.Base;
 
-namespace Payka.ReadModel.Models;
+namespace Payka.ReadModel.Models.Users;
 
 public class UserEntity : ReadModelBase
 {

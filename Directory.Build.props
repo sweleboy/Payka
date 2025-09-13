@@ -5,7 +5,7 @@
     <RepositoryUrl>https://github.com/sweleboy/Payka</RepositoryUrl>
     <IsPackable>False</IsPackable>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
