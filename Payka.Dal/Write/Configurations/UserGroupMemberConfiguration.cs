@@ -1,24 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Payka.Dal.Migrations;
-using Payka.ReadModel.Models.Users;
+using Payka.Domain.Models;
+using Payka.Domain.Models.Users;
 using static Payka.Dal.Constants.CommonColumnNames;
 using static Payka.Dal.Migrations.M007_CreateUserGroupMemberTableMigration;
 
-namespace Payka.Dal.Configurations;
+namespace Payka.Dal.Write.Configurations;
 
-public class UserGroupMemberEntityConfiguration : IEntityTypeConfiguration<UserGroupMemberEntity>
+internal class UserGroupMemberConfiguration : IEntityTypeConfiguration<UserGroupMember>
 {
-	public void Configure(EntityTypeBuilder<UserGroupMemberEntity> builder)
+	public void Configure(EntityTypeBuilder<UserGroupMember> builder)
 	{
 		builder.ToTable(TableName);
 		builder.HasKey(x => x.Id);
 
 		builder.Property(x => x.Id)
 			.HasColumnName(IdColumnName);
-		builder.Property(x => x.CreateDate)
-			.HasColumnName(CreatedDateColumnName);
 		builder.Property(x => x.IsDeleted)
 			.HasColumnName(IsDeleteColumnName);
 
@@ -27,7 +25,7 @@ public class UserGroupMemberEntityConfiguration : IEntityTypeConfiguration<UserG
 			.HasConversion<EnumToStringConverter<UserGroupRole>>()
 			.IsRequired();
 
-		builder.HasOne<UserGroupEntity>()
+		builder.HasOne<UserGroup>()
 			.WithMany(g => g.Members)
 			.HasForeignKey(GroupIdColumnName);
 

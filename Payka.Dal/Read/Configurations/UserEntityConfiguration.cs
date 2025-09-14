@@ -4,7 +4,7 @@ using Payka.ReadModel.Models.Users;
 using static Payka.Dal.Constants.CommonColumnNames;
 using static Payka.Dal.Migrations.M001_CreateUserTableMigration;
 
-namespace Payka.Dal.Configurations;
+namespace Payka.Dal.Read.Configurations;
 
 public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
 {

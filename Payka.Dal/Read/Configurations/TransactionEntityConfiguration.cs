@@ -5,7 +5,7 @@ using Payka.ReadModel.Models.Transactions;
 using static Payka.Dal.Constants.CommonColumnNames;
 using static Payka.Dal.Migrations.M008_CreateTransactionTableMigration;
 
-namespace Payka.Dal.Configurations;
+namespace Payka.Dal.Read.Configurations;
 
 public class TransactionEntityConfiguration : IEntityTypeConfiguration<TransactionEntity>
 {

@@ -1,20 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Payka.Dal.Migrations;
-using Payka.ReadModel.Models;
-using Payka.ReadModel.Models.Users;
+using Payka.Domain.Models.Common;
+using Payka.Domain.Models.Users;
 using static Payka.Dal.Constants.CommonColumnNames;
-using static Payka.Dal.Migrations.M004_CreateWalletTableMigration;
-using static Payka.Dal.Migrations.M006_CreateUserGroupTableMigration;
 using static Payka.Dal.Migrations.M009_CreateUserGroupWalletsTableMigration;
 
-namespace Payka.Dal.Configurations;
+namespace Payka.Dal.Write.Configurations;
 
-public class GroupWalletEntityConfiguration : IEntityTypeConfiguration<GroupWalletEntity>
+public class GroupWalletConfiguration : IEntityTypeConfiguration<GroupWallet>
 {
-	public void Configure(EntityTypeBuilder<GroupWalletEntity> builder)
+	public void Configure(EntityTypeBuilder<GroupWallet> builder)
 	{
-		builder.ToTable(M009_CreateUserGroupWalletsTableMigration.TableName);
+		builder.ToTable(TableName);
 		builder.HasKey(x => x.Id);
 
 		builder.Property(x => x.Id)
@@ -22,7 +19,7 @@ public class GroupWalletEntityConfiguration : IEntityTypeConfiguration<GroupWall
 		builder.Property<Guid>("WalletId")
 			.HasColumnName(WalletIdColumnName);
 
-		builder.HasOne<UserGroupEntity>()
+		builder.HasOne<UserGroup>()
 			.WithMany(g => g.GroupWallets)
 			.HasForeignKey(GroupIdColumnName);
 

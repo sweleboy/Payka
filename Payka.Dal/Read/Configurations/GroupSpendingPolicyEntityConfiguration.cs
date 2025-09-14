@@ -4,7 +4,7 @@ using Payka.ReadModel.Models;
 using static Payka.Dal.Constants.CommonColumnNames;
 using static Payka.Dal.Migrations.M005_CreateGroupSpendingPolicyTableMigration;
 
-namespace Payka.Dal.Configurations;
+namespace Payka.Dal.Read.Configurations;
 
 public class GroupSpendingPolicyEntityConfiguration : IEntityTypeConfiguration<GroupSpendingPolicyEntity>
 {

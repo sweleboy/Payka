@@ -4,7 +4,7 @@ using Payka.ReadModel.Models;
 using static Payka.Dal.Constants.CommonColumnNames;
 using static Payka.Dal.Migrations.M003_CreateCurrencyTableMigration;
 
-namespace Payka.Dal.Configurations;
+namespace Payka.Dal.Read.Configurations;
 
 public class CurrencyEntityConfiguration : IEntityTypeConfiguration<CurrencyEntity>
 {

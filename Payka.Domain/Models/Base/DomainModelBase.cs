@@ -10,6 +10,11 @@ public abstract class DomainModelBase
 		get;
 		protected set;
 	}
+	public bool IsDeleted
+	{
+		get;
+		protected set;
+	}
 
 	protected static void CheckRule(IBusinessRule rule)
 	{
