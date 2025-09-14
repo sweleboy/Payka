@@ -13,6 +13,7 @@ namespace Payka.Dal.Migrations
 		public const string OwnerIdColumnName = "owner_id";
 		public const string BalanceAmountColumnName = "balance_amount";
 		public const string BalanceCurrencyIdColumnName = "balance_currency_id";
+		public const string IsGoupWalletColumnName = "is_group_wallet";
 
 		public override void Up()
 		{
@@ -23,7 +24,8 @@ namespace Payka.Dal.Migrations
 				.WithColumn(NotesColumnName).AsString(1024).Nullable()
 				.WithColumn(OwnerIdColumnName).AsGuid().NotNullable()
 				.WithColumn(BalanceAmountColumnName).AsDecimal(19, 4).NotNullable()
-				.WithColumn(BalanceCurrencyIdColumnName).AsGuid().NotNullable();
+				.WithColumn(BalanceCurrencyIdColumnName).AsGuid().NotNullable()
+				.WithColumn(IsGoupWalletColumnName).AsBoolean().NotNullable().WithDefaultValue(false);
 
 			Create.ForeignKey("fk_wallet_owner_user")
 				.FromTable(TableName).ForeignColumn(OwnerIdColumnName)

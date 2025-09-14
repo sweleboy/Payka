@@ -24,7 +24,7 @@ public class M008_CreateTransactionTableMigration : Migration
 			.AddBaseReadModelAudit()
 			.WithColumn(AmountAmountColumnName).AsDecimal(19, 4).NotNullable()
 			.WithColumn(AmountCurrencyIdColumnName).AsGuid().NotNullable()
-			.WithColumn(TypeColumnName).AsInt32().NotNullable()
+			.WithColumn(TypeColumnName).AsString().NotNullable()
 			.WithColumn(WalletIdColumnName).AsGuid().NotNullable()
 			.WithColumn(InitiatorIdColumnName).AsGuid().NotNullable()
 			.WithColumn(CategoryIdColumnName).AsGuid().NotNullable()

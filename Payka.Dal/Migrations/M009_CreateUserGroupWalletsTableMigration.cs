@@ -10,18 +10,13 @@ public class M009_CreateUserGroupWalletsTableMigration : Migration
 	public const string TableName = "group_wallets";
 	public const string GroupIdColumnName = "group_id";
 	public const string WalletIdColumnName = "wallet_id";
-	public const string AliasColumnName = "alias";
-	public const string StatusColumnName = "status";
 
 	public override void Up()
 	{
 		Create.Table(TableName)
 			.WithColumn(IdColumnName).AsGuid().PrimaryKey().NotNullable()
-			.AddBaseReadModelAudit()
 			.WithColumn(GroupIdColumnName).AsGuid().NotNullable()
-			.WithColumn(WalletIdColumnName).AsGuid().NotNullable()
-			.WithColumn(AliasColumnName).AsString(128).Nullable()
-			.WithColumn(StatusColumnName).AsInt32().NotNullable().WithDefaultValue(0);
+			.WithColumn(WalletIdColumnName).AsGuid().NotNullable();
 
 		Create.ForeignKey("fk_group_wallet_group")
 			.FromTable(TableName).ForeignColumn(GroupIdColumnName)

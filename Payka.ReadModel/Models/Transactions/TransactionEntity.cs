@@ -5,7 +5,6 @@ namespace Payka.ReadModel.Models.Transactions;
 
 public class TransactionEntity : ReadModelBase
 {
-	public Guid Id { get; set; }
 	public MoneyEntity Amount { get; set; } = null!;
 	public TransactionType Type { get; set; }
 	public WalletEntity Wallet { get; set; } = null!;

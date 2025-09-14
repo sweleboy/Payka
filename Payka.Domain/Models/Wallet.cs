@@ -9,6 +9,7 @@ public class Wallet : DomainModelBase
 	public Money Balance { get; private set; }
 	public User Owner { get; private set; }
 	public string? Notes { get; private set; }
+	public bool IsGroupWallet { get; private set; }
 
 	private Wallet() { }
 
