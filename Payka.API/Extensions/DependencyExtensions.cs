@@ -1,5 +1,9 @@
 ﻿using FluentMigrator.Runner;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Payka.Application.UnitOfWork;
+using Payka.Application.UnitOfWork.Base;
+using Payka.Application.UseCases.CreateUsers;
 using Payka.Dal;
 using Payka.Dal.Migrations;
 
@@ -9,10 +13,16 @@ public static class DependencyExtensions
 {
 	public static IServiceCollection AddPaykaServices(this IServiceCollection services, string connectionString)
 	{
+		services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+		services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommandHandler>());
+
+		services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehavior<,>));
+
 		services.AddDbContext<WriteDbContext>(options =>
-			options.UseNpgsql(connectionString), ServiceLifetime.Transient);
+			options.UseNpgsql(connectionString), ServiceLifetime.Scoped);
 		services.AddDbContext<ReadDbContext>(options =>
-			options.UseNpgsql(connectionString), ServiceLifetime.Transient);
+			options.UseNpgsql(connectionString), ServiceLifetime.Scoped);
 
 		return services;
 	}

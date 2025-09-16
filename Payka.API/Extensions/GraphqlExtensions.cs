@@ -11,7 +11,7 @@ namespace Payka.API.Extensions
 			services.AddGraphQLServer()
 					.AddAuthorization()
 					.AddQueryType()
-					//.AddMutationType()
+					.AddMutationType()
 					.AddAPITypes()
 					.AddMutationConventions()	
 					.AddFiltering()
