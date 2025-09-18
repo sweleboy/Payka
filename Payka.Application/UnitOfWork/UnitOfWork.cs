@@ -1,47 +1,55 @@
-﻿using Payka.Application.UnitOfWork.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+using Payka.Application.UnitOfWork.Base;
 using Payka.Dal;
 
 namespace Payka.Application.UnitOfWork;
 
-public class UnitOfWork(WriteDbContext writeDbContext) : IUnitOfWork	
+public class UnitOfWork : IUnitOfWork
 {
+	private readonly WriteDbContext _writeDbContext;
+
+	private readonly IDbContextTransaction _transaction;
+
+	public UnitOfWork(WriteDbContext writeDbContext)
+	{
+		_writeDbContext = writeDbContext;
+		_transaction = _writeDbContext.Database.BeginTransaction();
+	}
+
 	public void Commit()
 	{
-		using var transaction = writeDbContext.Database.BeginTransaction();
 		try
 		{
-			writeDbContext.SaveChanges();
-			transaction.Commit();
+			_writeDbContext.SaveChanges();
+			_transaction.Commit();
 		}
 		catch
 		{
-			transaction.Rollback();
-			throw;
+			_transaction.Rollback();
 		}
 	}
 
 	public async Task CommitAsync(CancellationToken cancellationToken)
 	{
-		await using var tx = await writeDbContext.Database.BeginTransactionAsync(cancellationToken);
 		try
 		{
-			await writeDbContext.SaveChangesAsync(cancellationToken);
-			await tx.CommitAsync(cancellationToken);
+			await _writeDbContext.SaveChangesAsync(cancellationToken);
+			await _transaction.CommitAsync(cancellationToken);
 		}
 		catch
 		{
-			await tx.RollbackAsync(cancellationToken);
-			throw;
+			await _transaction.RollbackAsync(cancellationToken);
 		}
 	}
 
 	public void Dispose()
 	{
-		writeDbContext.Dispose();
+		_transaction.Dispose();
 	}
 
 	public async ValueTask DisposeAsync()
 	{
-		await writeDbContext.DisposeAsync();
+		await _transaction.DisposeAsync();
 	}
 }
