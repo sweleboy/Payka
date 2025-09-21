@@ -23,5 +23,6 @@ public class ReadDbContext : DbContext
 		modelBuilder.ApplyConfiguration(new UserGroupEntityConfiguration());
 		modelBuilder.ApplyConfiguration(new UserGroupMemberEntityConfiguration());
 		modelBuilder.ApplyConfiguration(new GroupWalletEntityConfiguration());
+		modelBuilder.ApplyConfiguration(new UserCredentionalConfiguration());
 	}
 }

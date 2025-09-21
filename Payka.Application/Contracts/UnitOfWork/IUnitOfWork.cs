@@ -1,4 +1,4 @@
-﻿namespace Payka.Application.UnitOfWork.Base;
+﻿namespace Payka.Application.Contracts.UnitOfWork;
 
 public interface IUnitOfWork : IAsyncDisposable, IDisposable
 {

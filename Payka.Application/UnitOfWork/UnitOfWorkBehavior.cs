@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Payka.Application.UnitOfWork.Base;
+using Payka.Application.Contracts.UnitOfWork;
 
 namespace Payka.Application.UnitOfWork;
 

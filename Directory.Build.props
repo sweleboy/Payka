@@ -1,14 +1,14 @@
 <Project>
-  <PropertyGroup>
-    <Authors>sweleboy</Authors>
-    <Owners>$(Authors)</Owners>
-    <RepositoryUrl>https://github.com/sweleboy/Payka</RepositoryUrl>
-    <IsPackable>False</IsPackable>
-    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    <!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;</AllowedOutputExtensionsInPackageBuildOutputFolder>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Authors>sweleboy</Authors>
+		<Owners>$(Authors)</Owners>
+		<RepositoryUrl>https://github.com/sweleboy/Payka</RepositoryUrl>
+		<IsPackable>False</IsPackable>
+		<PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+		<!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;</AllowedOutputExtensionsInPackageBuildOutputFolder>
+	</PropertyGroup>
 </Project>

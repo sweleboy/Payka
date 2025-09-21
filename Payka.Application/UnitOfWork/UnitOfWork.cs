@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using Payka.Application.UnitOfWork.Base;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using Payka.Application.Contracts.UnitOfWork;
 using Payka.Dal;
 
 namespace Payka.Application.UnitOfWork;

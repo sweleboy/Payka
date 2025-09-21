@@ -7,7 +7,7 @@ var services = builder.Services;
 
 builder.ConfigureKestrel();
 
-//services.AddGraphQlAuthorization(builder.Configuration);
+services.AddGraphQlAuthorization(builder.Configuration);
 services.AddControllers();
 var connectionString = GetFormattedConnectionString();
 services.AddPaykaServices(connectionString);

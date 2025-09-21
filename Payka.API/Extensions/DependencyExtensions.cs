@@ -1,8 +1,10 @@
 ﻿using FluentMigrator.Runner;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Payka.Application.Contracts.Services;
+using Payka.Application.Contracts.UnitOfWork;
+using Payka.Application.Services;
 using Payka.Application.UnitOfWork;
-using Payka.Application.UnitOfWork.Base;
 using Payka.Application.UseCases.CreateUsers;
 using Payka.Dal;
 using Payka.Dal.Migrations;
@@ -14,6 +16,7 @@ public static class DependencyExtensions
 	public static IServiceCollection AddPaykaServices(this IServiceCollection services, string connectionString)
 	{
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
+		services.AddScoped<IAuthorizationService, AuthorizationService>();
 
 		services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommandHandler>());
 

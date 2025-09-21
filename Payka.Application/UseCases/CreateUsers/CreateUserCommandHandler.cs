@@ -1,4 +1,4 @@
-﻿using Payka.Application.CQRS.Base;
+﻿using Payka.Application.Contracts.CQRS;
 using Payka.Dal;
 
 namespace Payka.Application.UseCases.CreateUsers;
