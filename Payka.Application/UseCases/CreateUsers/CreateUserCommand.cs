@@ -2,4 +2,4 @@
 
 namespace Payka.Application.UseCases.CreateUsers;
 
-public record CreateUserCommand(Guid Id) : ICommand;
+public record CreateUserCommand(string FullName, string UserName, string Password) : ICommand;

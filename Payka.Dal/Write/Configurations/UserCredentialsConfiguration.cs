@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Payka.ReadModel.Models.Users;
 using static Payka.Dal.Migrations.M010_AddUserCredantionalsTableMigration;
 
-namespace Payka.Dal.Read.Configurations;
+namespace Payka.Dal.Write.Configurations;
 
-public class UserCredentionalConfiguration : IEntityTypeConfiguration<UserCredentional>
+public class UserCredentialsConfiguration : IEntityTypeConfiguration<UserCredentials>
 {
-	public void Configure(EntityTypeBuilder<UserCredentional> builder)
+	public void Configure(EntityTypeBuilder<UserCredentials> builder)
 	{
 		builder.ToTable(TableName);
 

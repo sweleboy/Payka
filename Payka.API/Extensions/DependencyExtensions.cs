@@ -17,6 +17,8 @@ public static class DependencyExtensions
 	{
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
 		services.AddScoped<IAuthorizationService, AuthorizationService>();
+		services.AddScoped<ICryptoService, CryptoService>();
+		services.AddScoped<IUserService, UserService>();
 
 		services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommandHandler>());
 

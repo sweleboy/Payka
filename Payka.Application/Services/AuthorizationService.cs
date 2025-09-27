@@ -11,13 +11,13 @@ using System.Text;
 
 namespace Payka.Application.Services;
 
-public class AuthorizationService(IConfiguration configuration, ReadDbContext dbContext) : IAuthorizationService
+public class AuthorizationService(IConfiguration configuration, WriteDbContext dbContext) : IAuthorizationService
 {
 	private static readonly JsonWebTokenHandler TokenHandler = new();
 
 	public async Task<string?> LoginAsync(string userName, string password)
 	{
-		var potentialUser = await dbContext.Set<UserCredentional>()
+		var potentialUser = await dbContext.Set<UserCredentials>()
 			.AsNoTracking()
 			.FirstOrDefaultAsync(x => x.UserName == userName);
 

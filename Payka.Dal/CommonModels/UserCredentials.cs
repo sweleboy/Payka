@@ -1,14 +1,14 @@
 ﻿namespace Payka.ReadModel.Models.Users;
 
-public class UserCredentional
+public class UserCredentials
 {
 	public Guid UserId { get; set; }
 	public string UserName { get; set; }
 	public string Password { get; set; }
 
-	public UserCredentional() { }
+	public UserCredentials() { }
 
-	public UserCredentional(Guid userId, string userName, string password)
+	public UserCredentials(Guid userId, string userName, string password)
 	{
 		UserId = userId;
 		UserName = userName;

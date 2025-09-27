@@ -8,6 +8,7 @@ namespace Payka.Dal;
 public class WriteDbContext : DbContext
 {
 	public DbSet<UserGroup> Groups { get; set; }
+	public DbSet<User> Users { get; set; }
 	public WriteDbContext(DbContextOptions<WriteDbContext> options)
 		: base(options)
 	{
