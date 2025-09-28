@@ -23,4 +23,15 @@ public class UserService(WriteDbContext dbContext) : IUserService
 	{
 		return await dbContext.Users.FirstOrDefaultAsync(x => x.UserName == userName);
 	}
+
+	public async Task<User> GetUserByIdAsync(Guid id)
+	{
+		var user = await dbContext.Users.FindAsync(id);
+		if (user == null)
+		{
+			throw new ExceptionWithMessage($"Валюта с идентификатором: \"{id}\" не найдена или была null.");
+		}
+
+		return user;
+	}
 }

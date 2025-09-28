@@ -4,7 +4,7 @@ using HotChocolate.Types;
 using Payka.Dal;
 using Payka.ReadModel.Models.Users;
 
-namespace Payka.API.GraphQL.Users
+namespace Payka.API.GraphQL.Queries
 {
 	[ExtendObjectType(OperationType.Query)]
 	public class UserQueries

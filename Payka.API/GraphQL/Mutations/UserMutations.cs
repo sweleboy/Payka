@@ -5,7 +5,7 @@ using MediatR;
 using Payka.Application.Exceptions;
 using Payka.Application.UseCases.CreateUsers;
 
-namespace Payka.API.GraphQL.Users;
+namespace Payka.API.GraphQL.Mutations;
 
 [ExtendObjectType(OperationType.Mutation)]
 public class UserMutations
