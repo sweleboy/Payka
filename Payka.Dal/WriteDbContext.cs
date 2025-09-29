@@ -11,6 +11,7 @@ public class WriteDbContext : DbContext
 	public DbSet<User> Users { get; set; }
 	public DbSet<Currency> Currencies { get; set; }
 	public DbSet<Wallet> Wallets { get; set; }
+	public DbSet<Category> Categories { get; set; }
 	public WriteDbContext(DbContextOptions<WriteDbContext> options)
 		: base(options)
 	{

@@ -22,5 +22,12 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 			.HasColumnName(NameColumnName)
 			.HasMaxLength(128)
 			.IsRequired();
+
+		builder.HasOne(x => x.Owner)
+			.WithMany()
+			.HasForeignKey(OwnerIdColumnName);
+
+		builder.Navigation(x => x.Owner)
+			.AutoInclude();
 	}
 }

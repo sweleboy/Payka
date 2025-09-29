@@ -29,7 +29,7 @@ public class UserService(WriteDbContext dbContext) : IUserService
 		var user = await dbContext.Users.FindAsync(id);
 		if (user == null)
 		{
-			throw new ExceptionWithMessage($"Валюта с идентификатором: \"{id}\" не найдена или была null.");
+			throw new ExceptionWithMessage($"Пользователь с идентификатором: \"{id}\" не найдена или была null.");
 		}
 
 		return user;
