@@ -12,7 +12,7 @@ public class CreateCategoryCommandHandler(WriteDbContext dbContext,
 	public async Task Handle(CreateCategoryCommand command, CancellationToken cancellationToken)
 	{
 		var id = Guid.NewGuid();
-		var owner = await userService.GetUserByIdAsync(id);
+		var owner = await userService.GetUserByIdAsync(command.OwnerId);
 		var category = Category.Create(id, command.Name, owner);
 
 		await dbContext.Categories.AddAsync(category);

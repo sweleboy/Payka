@@ -13,9 +13,10 @@ public class CatagoryMutations
 	[UseMutationConvention(PayloadFieldName = "isSuccess")]
 	[Error<ExceptionWithMessage>]
 	public async Task<bool> CreateCategoryAsync(string name,
+		Guid ownerId,
 		[Service] IMediator mediator)
 	{
-		await mediator.Send(new CreateCategoryCommand(name));
+		await mediator.Send(new CreateCategoryCommand(name, ownerId));
 		return true;
 	}
 }
