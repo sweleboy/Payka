@@ -20,6 +20,8 @@ public static class DependencyExtensions
 		services.AddScoped<ICryptoService, CryptoService>();
 		services.AddScoped<IUserService, UserService>();
 		services.AddScoped<ICurrencyService, CurrencyService>();
+		services.AddScoped<IWalletService, WalletService>();
+		services.AddScoped<IUserGroupService, UserGroupService>();
 
 		services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommandHandler>());
 

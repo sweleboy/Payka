@@ -45,4 +45,8 @@ public class UserGroup : DomainModelBase
 	{
 		Name = name;
 	}
+	public void AddMember(UserGroupMember member)
+	{
+		_members.Add(member);
+	}
 }
