@@ -1,6 +1,7 @@
 ﻿using Payka.Application.Contracts.CQRS;
 using Payka.Application.Contracts.Services;
 using Payka.Dal;
+using Payka.Domain.Models;
 using Payka.Domain.Models.Users;
 
 namespace Payka.Application.UseCases.CreateUserGroup;
@@ -15,6 +16,9 @@ public class CreateUserGroupCommandHandler(IUserService userService,
 
 		var id = Guid.NewGuid();
 		var userGroup = UserGroup.Create(id, command.Name, owner);
+
+		var ownerMember = UserGroupMember.Create(id, owner, UserGroupRole.Owner);
+		userGroup.AddMember(ownerMember);
 
 		await dbContext.AddAsync(userGroup);
 	}
