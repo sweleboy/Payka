@@ -1,4 +1,5 @@
-﻿using Payka.Application.Contracts.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using Payka.Application.Contracts.Services;
 using Payka.Application.Exceptions;
 using Payka.Dal;
 using Payka.Domain.Models.Users;
@@ -8,7 +9,9 @@ public class UserGroupService(WriteDbContext dbContext) : IUserGroupService
 {
 	public async Task<UserGroup> GetUserGroupByIdAsync(Guid id)
 	{
-		var userGroup = await dbContext.Groups.FindAsync(id);
+		var userGroup = await dbContext.Groups
+			.Include(g => g.Members)
+			.FirstOrDefaultAsync(g => g.Id == id);
 		if (userGroup == null)
 		{
 			throw new ExceptionWithMessage($"Группа пользователей с идентификатором: \"{id}\" не найдена или была null.");

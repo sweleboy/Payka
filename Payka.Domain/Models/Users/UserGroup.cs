@@ -1,6 +1,7 @@
 ﻿using Payka.Domain.Models.Base;
 using Payka.Domain.Models.Common;
 using Payka.Domain.Models.Politics;
+using Payka.Domain.Models.Users.Rules;
 
 namespace Payka.Domain.Models.Users;
 
@@ -47,6 +48,7 @@ public class UserGroup : DomainModelBase
 	}
 	public void AddMember(UserGroupMember member)
 	{
+		CheckRule(new CheckUserIsNotContainsInMembersRule(_members, member));
 		_members.Add(member);
 	}
 }
