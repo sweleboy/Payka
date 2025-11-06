@@ -1,5 +1,6 @@
 ﻿using Payka.Application.Contracts.CQRS;
 using Payka.Application.Contracts.Services;
+using Payka.Dal;
 using Payka.Domain.Models;
 using Payka.Domain.Models.Users;
 
