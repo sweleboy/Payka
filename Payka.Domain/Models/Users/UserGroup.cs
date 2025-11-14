@@ -52,6 +52,11 @@ public class UserGroup : DomainModelBase
 		CheckRule(new CheckUserIsNotContainsInMembersRule(_members, member));
 		_members.Add(member);
 	}
+	public void RemoveMemberById(Guid memberId)
+	{
+		CheckRule(new CheckUserIsContainsInMembersRule(_members, memberId));
+		_members.RemoveAll(x => x.User.Id == memberId);
+	}
 	public void AddWallet(GroupWallet groupWallet)
 	{
 		CheckRule(new CheckWalletIsNotContainsInGroupWalletsRule(_groupWallets, groupWallet));

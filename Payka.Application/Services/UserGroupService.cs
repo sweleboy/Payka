@@ -19,4 +19,18 @@ public class UserGroupService(WriteDbContext dbContext) : IUserGroupService
 
 		return userGroup;
 	}
+	public async Task<UserGroup> GetUserGroupByUserAsync(User user)
+	{
+		var userGroup = await dbContext.Groups
+			.Include(g => g.Members)
+			.Where(g => g.Members.Any(m => m.User.Id == user.Id))
+			.FirstOrDefaultAsync();
+
+		if (userGroup == null)
+		{
+			throw new ExceptionWithMessage($"Группа пользователей с участником: \"{user.Id}\" не найдена или была null.");
+		}
+
+		return userGroup;
+	}
 }
