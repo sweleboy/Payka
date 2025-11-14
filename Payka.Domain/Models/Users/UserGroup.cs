@@ -2,6 +2,7 @@
 using Payka.Domain.Models.Common;
 using Payka.Domain.Models.Politics;
 using Payka.Domain.Models.Users.Rules;
+using Payka.Domain.Models.Wallets.Rules;
 
 namespace Payka.Domain.Models.Users;
 
@@ -50,5 +51,10 @@ public class UserGroup : DomainModelBase
 	{
 		CheckRule(new CheckUserIsNotContainsInMembersRule(_members, member));
 		_members.Add(member);
+	}
+	public void AddWallet(GroupWallet groupWallet)
+	{
+		CheckRule(new CheckWalletIsNotContainsInGroupWalletsRule(_groupWallets, groupWallet));
+		_groupWallets.Add(groupWallet);
 	}
 }

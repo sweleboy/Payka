@@ -2,6 +2,7 @@
 using Payka.Application.Contracts.Services;
 using Payka.Dal;
 using Payka.Domain.Models;
+using Payka.Domain.Models.Wallets;
 
 namespace Payka.Application.UseCases.CreateWallets;
 

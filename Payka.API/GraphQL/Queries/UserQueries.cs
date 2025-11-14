@@ -4,11 +4,10 @@ using HotChocolate.Types;
 using Payka.Dal;
 using Payka.ReadModel.Models.Users;
 
-namespace Payka.API.GraphQL.Queries
+namespace Payka.API.GraphQL.Queries;
+
+[ExtendObjectType(OperationType.Query)]
+public class UserQueries
 {
-	[ExtendObjectType(OperationType.Query)]
-	public class UserQueries
-	{
-		public IQueryable<UserGroupEntity> GetGroups([Service] ReadDbContext dbContext) => dbContext.GroupEntities;
-	}
+	public IQueryable<UserGroupEntity> GetGroups([Service] ReadDbContext dbContext) => dbContext.GroupEntities;
 }

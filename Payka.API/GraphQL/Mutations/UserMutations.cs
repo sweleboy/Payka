@@ -1,4 +1,5 @@
 ﻿using HotChocolate;
+using HotChocolate.Authorization;
 using HotChocolate.Language;
 using HotChocolate.Types;
 using MediatR;
@@ -10,6 +11,7 @@ namespace Payka.API.GraphQL.Mutations;
 [ExtendObjectType(OperationType.Mutation)]
 public class UserMutations
 {
+	[AllowAnonymous]
 	[UseMutationConvention(PayloadFieldName = "isSuccess")]
 	[Error<ExceptionWithMessage>]
 	public async Task<bool> CreateUserAsync(string fullName,

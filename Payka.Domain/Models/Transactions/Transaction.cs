@@ -1,5 +1,6 @@
 ﻿using Payka.Domain.Models.Base;
 using Payka.Domain.Models.Users;
+using Payka.Domain.Models.Wallets;
 
 namespace Payka.Domain.Models.Transactions;
 

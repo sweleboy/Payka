@@ -1,7 +1,7 @@
 ﻿using Payka.Domain.Models.Base;
 using Payka.Domain.Models.Users;
 
-namespace Payka.Domain.Models;
+namespace Payka.Domain.Models.Wallets;
 
 public class Wallet : DomainModelBase
 {

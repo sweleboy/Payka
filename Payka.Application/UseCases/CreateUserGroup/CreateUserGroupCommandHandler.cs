@@ -2,6 +2,7 @@
 using Payka.Application.Contracts.Services;
 using Payka.Dal;
 using Payka.Domain.Models;
+using Payka.Domain.Models.Common;
 using Payka.Domain.Models.Users;
 
 namespace Payka.Application.UseCases.CreateUserGroup;
@@ -14,11 +15,17 @@ public class CreateUserGroupCommandHandler(IUserService userService,
 		var owner = await userService.GetUserByIdAsync(command.OwnerId);
 		var wallet = await walletService.GetWalletByIdAsync(command.WalletId);
 
-		var id = Guid.NewGuid();
-		var userGroup = UserGroup.Create(id, command.Name, owner);
+		await walletService.CheckWalletAlreadyContainsInGroupAsync(wallet.Id);
 
-		var ownerMember = UserGroupMember.Create(id, owner, UserGroupRole.Owner);
+		var userGroupId = Guid.NewGuid();
+		var userGroup = UserGroup.Create(userGroupId, command.Name, owner);
+
+		var groupWalletId = Guid.NewGuid();
+		var grroupWallet = GroupWallet.Create(groupWalletId, wallet);
+
+		var ownerMember = UserGroupMember.Create(userGroupId, owner, UserGroupRole.Owner);
 		userGroup.AddMember(ownerMember);
+		userGroup.AddWallet(grroupWallet);
 
 		await dbContext.AddAsync(userGroup);
 	}

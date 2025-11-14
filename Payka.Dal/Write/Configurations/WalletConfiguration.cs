@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Payka.Domain.Models;
+using Payka.Domain.Models.Wallets;
 using static Payka.Dal.Constants.CommonColumnNames;
 using static Payka.Dal.Migrations.M004_CreateWalletTableMigration;
 
