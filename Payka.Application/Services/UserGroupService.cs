@@ -23,8 +23,7 @@ public class UserGroupService(WriteDbContext dbContext) : IUserGroupService
 	{
 		var userGroup = await dbContext.Groups
 			.Include(g => g.Members)
-			.Where(g => g.Members.Any(m => m.User.Id == user.Id))
-			.FirstOrDefaultAsync();
+			.FirstOrDefaultAsync(x => x.Members.Contains(user));
 
 		if (userGroup == null)
 		{

@@ -8,9 +8,7 @@ public class UserGroupEntity : ReadModelBase
 
 	public UserEntity Owner { get; set; } = null!;
 
-	public List<UserGroupMemberEntity> Members { get; set; } = new();
+	public List<UserEntity> Members { get; set; } = new();
 
-	public List<GroupWalletEntity> GroupWallets { get; set; } = new();
-
-	public GroupSpendingPolicyEntity? SpendingPolicy { get; set; }
+	public List<WalletEntity> GroupWallets { get; set; } = new();
 }

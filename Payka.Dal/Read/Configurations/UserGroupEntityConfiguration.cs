@@ -30,10 +30,6 @@ public class UserGroupEntityConfiguration : IEntityTypeConfiguration<UserGroupEn
 			.WithMany()
 			.HasForeignKey(OwnerIdColumnName);
 
-		builder.HasOne(x => x.SpendingPolicy)
-			.WithMany()
-			.HasForeignKey(SpendingPolicyIdColumnName);
-
 		builder.Navigation(x => x.Owner)
 			.AutoInclude();
 		builder.Navigation(x => x.Members)

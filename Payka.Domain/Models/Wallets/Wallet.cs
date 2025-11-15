@@ -1,5 +1,6 @@
 ﻿using Payka.Domain.Models.Base;
 using Payka.Domain.Models.Users;
+using Payka.Domain.Models.Wallets.Rules;
 
 namespace Payka.Domain.Models.Wallets;
 
@@ -25,5 +26,10 @@ public class Wallet : DomainModelBase
 	public static Wallet Create(Guid id, string name, Money initialBalance, User owner, string? notes = null)
 	{
 		return new Wallet(id, name, initialBalance, owner, notes);
+	}
+	public void MarkAsGrouped()
+	{
+		CheckRule(new CheckWalletCanBeMarkedAsGroupedRulepublic(this));
+		IsGroupWallet = true;
 	}
 }

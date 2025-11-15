@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Payka.Dal.Write.Configurations;
 using Payka.Domain.Models;
-using Payka.Domain.Models.Common;
 using Payka.Domain.Models.Users;
 using Payka.Domain.Models.Wallets;
 
@@ -13,9 +12,7 @@ public class WriteDbContext : DbContext
 	public DbSet<User> Users { get; set; }
 	public DbSet<Currency> Currencies { get; set; }
 	public DbSet<Wallet> Wallets { get; set; }
-	public DbSet<GroupWallet> GroupWallets { get; set; }
 	public DbSet<Category> Categories { get; set; }
-	public DbSet<UserGroupMember> UserGroupMembers { get; set; }
 	public WriteDbContext(DbContextOptions<WriteDbContext> options)
 		: base(options)
 	{

@@ -21,7 +21,7 @@ public class WalletService(WriteDbContext dbContext) : IWalletService
 
 	public async Task<bool> CheckWalletAlreadyContainsInGroupAsync(Guid id)
 	{
-		var isWalletAlreadyContainsInGroup = await dbContext.GroupWallets.AnyAsync(x => x.Wallet.Id == id);
+		var isWalletAlreadyContainsInGroup = await dbContext.Wallets.AnyAsync(x => x.Id == id);
 		if (isWalletAlreadyContainsInGroup == true)
 		{
 			throw new ExceptionWithMessage("Кошелёк уже содержиться в другой группе.");

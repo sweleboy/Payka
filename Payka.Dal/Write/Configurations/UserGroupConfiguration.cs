@@ -28,15 +28,11 @@ internal class UserGroupConfiguration : IEntityTypeConfiguration<UserGroup>
 			.WithMany()
 			.HasForeignKey(OwnerIdColumnName);
 
-		builder.HasOne(x => x.SpendingPolicy)
-			.WithMany()
-			.HasForeignKey(SpendingPolicyIdColumnName);
-
 		builder.Navigation(x => x.Owner)
 			.AutoInclude();
 		builder.Navigation(x => x.Members)
 			.AutoInclude();
-		builder.Navigation(x => x.GroupWallets)
+		builder.Navigation(x => x.Wallets)
 			.AutoInclude();
 	}
 }

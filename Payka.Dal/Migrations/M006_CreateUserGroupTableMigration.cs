@@ -24,10 +24,6 @@ public class M006_CreateUserGroupTableMigration : Migration
 		Create.ForeignKey("fk_group_owner_user")
 			.FromTable(TableName).ForeignColumn(OwnerIdColumnName)
 			.ToTable(M001_CreateUserTableMigration.TableName).PrimaryColumn(IdColumnName);
-
-		Create.ForeignKey("fk_group_spending_policy")
-			.FromTable(TableName).ForeignColumn(SpendingPolicyIdColumnName)
-			.ToTable(M005_CreateGroupSpendingPolicyTableMigration.TableName).PrimaryColumn(IdColumnName);
 	}
 
 	public override void Down()
